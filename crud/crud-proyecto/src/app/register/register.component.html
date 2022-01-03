@@ -1,0 +1,28 @@
+<p>register here, input your information in the fields properly..</p>
+<div class="aligner">
+    <mat-card class="aligner-center-item">
+      <mat-card-title>
+        register Form
+      </mat-card-title>
+      <mat-card-content>
+        <form id="register-form" #lForm="ngForm" [formGroup]="registerForm" (ngSubmit)="submitRegister()" novalidate>
+          <mat-form-field >
+            <input matInput type="text" formControlName="username" placeholder="Username"/>
+          </mat-form-field>
+          <mat-form-field >
+            <input matInput type="text" formControlName="email" placeholder="email"/>
+          </mat-form-field>
+          <mat-form-field >
+            <input matInput type="password" formControlName="password" placeholder="new password"/>
+          </mat-form-field>
+          <mat-form-field >
+            <input matInput type="number" formControlName="age" placeholder="age"/>
+          </mat-form-field>
+        </form>
+      </mat-card-content>
+      <mat-card-actions >
+        <button mat-raised-button type="submit" form="register-form">Registerr</button>
+      </mat-card-actions>
+    </mat-card>
+    
+  </div>

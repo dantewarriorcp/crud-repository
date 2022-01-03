@@ -1,0 +1,39 @@
+<div>
+<h1>Hi {{sesion.user.name}} , bienvenido</h1>
+<div>
+  <mat-card>
+     
+     <form id="formAddtask" #lForm="ngForm" [formGroup]="addForm" (ngSubmit)="AddTask()" novalidate>
+      <mat-form-field >
+        <input matInput type="text" formControlName="description" style="text-align: right;"placeholder=" add task here"/>
+      </mat-form-field>
+    </form>
+    <mat-card-actions style="text-align: right;">
+      <button mat-raised-button type="submit" form="formAddtask"> Addtask</button>
+    </mat-card-actions>
+  </mat-card> 
+</div>
+
+<div>
+ 
+</div>
+
+      <div *ngIf="conttask==0; else elseBlock ">
+        <h2> dont exists task </h2>
+      </div>
+      <ng-template #elseBlock>
+        <ul>
+            <li *ngFor="let x of arraytareasaux;let i =index;">
+              <div >
+                  <a>task: {{i}}, completado:{{x['completed']}} ,id:{{x['_id']}} ,descripcioN:{{x['description']}} </a>
+                  <button (click)="DeleteTask(x['_id'])" > Delete </button>
+                  <button (click)="UpdateTask(x['_id'])"> Update </button>
+              </div>
+            </li> 
+        </ul>
+      </ng-template>
+      <br>
+      <br>
+      <button (click)="logout()"> Logout </button>
+
+</div>
